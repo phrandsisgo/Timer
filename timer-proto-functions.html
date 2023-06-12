@@ -10,16 +10,21 @@
     <h1 id="app">count down from 10</h1>
     <div class="alert alert-success" role="alert">
         <script>
+            let timerId;
+
             function startCountdown(){
-                //falls es schon einen Timer gibt; zuerst stoppen.
+            if (!timerId) {
+                stopCountdown
+            }    //falls es schon einen Timer gibt; zuerst stoppen.
                 //setDisplay("10");
                 //counter in den anfangszustand versetzen.
                 //verwende die Referenz 'updateCounter', um die Funktion für später zu registrieren.
                 //jede Sekunde soll die Funktion 'updateCounter' aufgerufen werden.
-                
+                setInterval(updateCounter, 1000);
+
             }
             function stopCountdown(){
-
+                clearInterval(timerId);
             }
             function updateCounter(){
 

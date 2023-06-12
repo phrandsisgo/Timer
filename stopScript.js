@@ -1,5 +1,4 @@
 console.log('stopScript.js is beeing accessed');
-
 function createDialogForNewStopWatch(){
     console.log('createDialogForNewStopWatch()');
     let mainDialog = document.createElement('div');
@@ -65,10 +64,12 @@ function createDialogForNewStopWatch(){
 }
 
 function createStopWatch(hours,minutes,seconds){
+    
     console.log("creaate Stop watch"+ hours +"h" + minutes + "m" + seconds + "s");
 
     let stopWatch = document.createElement('div');
     stopWatch.class = 'Time-card row';
+    document.body.appendChild(stopWatch);
 
     let Zeile1 = document.createElement('div');
     Zeile1.class = 'Zeile1 text-center col-12';
@@ -83,3 +84,31 @@ function createStopWatch(hours,minutes,seconds){
     zeitAnzeige.innerHTML = hours + ":" + minutes + ":" + seconds;
     Zeile1.appendChild(zeitAnzeige);
 }
+
+var x;
+
+function beispielsZeit(){
+        let minutes = 3;
+        let seconds = 12;
+        
+        let distanceFinal=  minutes*60*1000+seconds*1000;
+        x = setInterval(function() {
+        distanceFinal = distanceFinal - 1000;
+        console.log(distanceFinal+" should be distanceFinal");
+
+        var minuten = Math.floor((distanceFinal % (1000 * 60 * 60)) / (1000 * 60));
+        var sekunden = Math.floor((distanceFinal % (1000 * 60)) / 1000);
+        console.log(minuten+"m "+sekunden+"s")
+        document.getElementById("digitaAnzeige").innerHTML = minuten + "m " + sekunden + "s ";
+        if (distanceFinal < 0) {
+            clearInterval(x);
+            document.getElementById("digitaAnzeige").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+}
+function stopCountdown(){
+    console.log("stopcountdown called");
+    clearInterval(x);
+    document.getElementById("beispiel1").remove();
+}
+beispielsZeit();
