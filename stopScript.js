@@ -92,6 +92,7 @@ function createStopWatch(hours,minutes,seconds,widgetId){
     digitalAnzeige.classList.add('fontDigitalNumber', 'col-5');
     digitalAnzeige.innerHTML =  "Zeit sollte hier eingefüllt werden";
     digitalAnzeige.setAttribute('functionId', widgetIdString + 'digitalAnzeige');
+    digitalAnzeige.setAttribute('data-time', combinedTime);
     //if I want to access it by this attribute I need to use digitalAnzeige.getAttribute('data-*');
     firstLineWidget.appendChild(digitalAnzeige);
 
@@ -167,6 +168,7 @@ function createStopWatch(hours,minutes,seconds,widgetId){
             var minuten = Math.floor((distanceFinal % (1000 * 60 * 60)) / (1000 * 60));
             var sekunden = Math.floor((distanceFinal % (1000 * 60)) / 1000);
             document.getElementById(anzeigeStringId).innerHTML = stunden + "h " + minuten + "m " + sekunden + "s ";
+            document.getElementById(anzeigeStringId).setAttribute('data-time', distanceFinal);
             if (distanceFinal < 0) {
                 clearInterval(z);
                 document.getElementById(anzeigeStringId).innerHTML = "EXPIRED";
@@ -175,13 +177,18 @@ function createStopWatch(hours,minutes,seconds,widgetId){
     }
     function pauseTimer(anzeigeStringId){
         clearInterval(intervalId);
+        console.log(intervalId);
     }
     function resetTimer(anzeigeStringId, beginningTimer){
         clearInterval(intervalId);
+        console.log(intervalId);
         targetTimer(beginningTimer);
     }
     function playTimer(anzeigeStringId){
-        //targetTimer();
+        //play the timer with the time that is stored in the data-time attribute and the widgetIdString + 'digitalAnzeige'
+        let time = document.getElementById(widgetIdString + 'digitalAnzeige').getAttribute('data-time');
+        targetTimer(time, anzeigeStringId);
+
     }
     //update the variable
     widgetIdNumber++;
