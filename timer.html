@@ -11,24 +11,14 @@
 </head>
 <body>
     <div class="container">
+      
         <div class="row">
             <div class="col-12 text-center">
                 <h1>Timer / Stoppuhr</h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 text-center">
-                <h2 id="timer">00:00:00</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 text-center">
-                <button class="btn btn-primary" id="start" onclick="startCountdown()">Start</button>
-                <button class="btn btn-danger" id="stop" onclick="stopCountdown()">Stop</button>
-                <button class="btn btn-warning" id="reset" onclick="resetCountdown()">Reset</button>
-            </div>
-        </div>
     </div>
+    <div id="timeGetSpawner"></div>
     <div class="row">
         <div class="col-12 text-center stopButton">
             <button class="btn btn-primary" id="neueStoppuhr" onclick="createDialogForNewStopWatch()">
@@ -36,41 +26,16 @@
             </button>
         </div>
     </div>
-    <dialog id="favDialog">
-        <form>
-          <p>
-            <label>Favorite animal:
-              <select>
-                <option value="default">Choose…</option>
-                <option>Brine shrimp</option>
-                <option>Red panda</option>
-                <option>Spider monkey</option>
-              </select>
-            </label>
-          </p>
-          <div>
-            <button value="cancel" formmethod="dialog">Cancel</button>
-            <button id="confirmBtn" value="default">Confirm</button>
-          </div>
-        </form>
-      </dialog>
-      <p>
-        <button id="showDialog">Show the dialog</button>
-      </p>
+    
       <!-- dieses unteres "Widget ist einer Referenz und wird in production gelöscht"-->
+      <!--
       <div class="bg-color-success Time-card row " id="beispiel1">
         <div class="Zeile1 text-center col-12">
-            <div class="col1"></div>
-            <h4 class="fontDigitalNumber col-5" id="digitaAnzeige">12:36:12</h4>
-            <div class="col-1"></div>
-            <img src="trash1.svg" class="col-4 icon" alt="" onclick="stopCountdown()">
+            <h4 class="fontDigitalNumber col-6" id="digitaAnzeige">12:36:12</h4>
+            <img src="trash1.svg" class="col-2 icon" alt="" onclick="stopCountdown()">
+            <img src="pause.svg" class="col-2 icon" alt="" onclick="stopCountdown()">
         </div>
-        <div class="Zeile2 text-center col-12">
-            <div class="col-3"></div>
-            <img src="play.svg" alt="play" class="icon col-3">
-            <img src="pause.svg" alt="pause" class="icon col-3">
-            <img src="reset.svg" alt="reset" class="icon col-3">
-        </div>
+        --->
 
       </div>
       <script src="stopScript.js"></script>
