@@ -98,7 +98,7 @@ function createStopWatch(hours,minutes,seconds,widgetId){
     //Für die Anzeige braucht es noch eine Funktion
     let digitalAnzeige = document.createElement('h5');
     digitalAnzeige.id = widgetIdString + 'digitalAnzeige';
-    digitalAnzeige.classList.add('fontDigitalNumber', 'col-7');
+    digitalAnzeige.classList.add('col-7','fontDigitalNumber');
     digitalAnzeige.innerHTML =  "Zeit sollte hier eingefüllt werden";
     digitalAnzeige.setAttribute('functionId', widgetIdString + 'digitalAnzeige');
     digitalAnzeige.setAttribute('data-time', combinedTime);
