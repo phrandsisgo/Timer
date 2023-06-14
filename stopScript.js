@@ -76,6 +76,17 @@ function createDialogForNewStopWatch(){
     });
     center.appendChild(submitButton);
 
+    let cancelButton = document.createElement('button');
+    cancelButton.innerHTML = 'Cancel';
+    cancelButton.classList.add('btn', 'btn-danger', 'mx-2');
+    cancelButton.addEventListener('click',function(){
+        //event.preventDefault();
+        mainDialog.remove();
+    });
+    center.appendChild(cancelButton);
+
+
+
     document.body.appendChild(mainDialog);
 
 }
